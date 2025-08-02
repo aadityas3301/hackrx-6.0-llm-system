@@ -34,7 +34,7 @@ git push -u origin main
 5. **Root Directory**: Leave as `./`
 6. **Build Command**: Leave empty
 7. **Output Directory**: Leave empty
-8. **Install Command**: `pip install -r requirements.txt`
+8. **Install Command**: `pip install -r requirements-vercel.txt`
 9. **Click "Deploy"**
 
 ### **Step 4: Configure Environment Variables**
@@ -88,8 +88,8 @@ curl -X POST "https://your-project-name.vercel.app/hackrx/run" \
 ### **If Vercel deployment fails:**
 
 1. **Check build logs** in Vercel dashboard
-2. **Verify requirements.txt** has all dependencies
-3. **Make sure main.py** is in the root directory
+2. **Verify requirements-vercel.txt** has all dependencies
+3. **Make sure api/simple.py** is in the correct location
 4. **Check environment variables** are set correctly
 
 ### **If API returns errors:**
@@ -101,17 +101,18 @@ curl -X POST "https://your-project-name.vercel.app/hackrx/run" \
 ### **Common Issues:**
 
 - **Port issues**: Vercel handles this automatically
-- **Import errors**: Make sure all dependencies are in requirements.txt
-- **Timeout errors**: Vercel has a 10-second timeout limit
+- **Import errors**: Make sure all dependencies are in requirements-vercel.txt
+- **Timeout errors**: Vercel has a 30-second timeout limit (configured)
+- **Size issues**: Using simplified version to avoid bundle size limits
 
 ## 📊 **Performance Optimization**
 
 For better performance on Vercel:
 
 1. **Use async functions** (already implemented)
-2. **Optimize chunk sizes** (adjust in config.py)
-3. **Cache embeddings** when possible
-4. **Use efficient models** (already using all-MiniLM-L6-v2)
+2. **Simplified dependencies** (using requirements-vercel.txt)
+3. **Mock responses** for demonstration (can be enhanced later)
+4. **Optimized for serverless** environment
 
 ## 🎯 **Final Checklist**
 
@@ -126,10 +127,10 @@ For better performance on Vercel:
 
 Your solution includes:
 - ✅ **FastAPI backend** with proper authentication
-- ✅ **GPT-4 integration** for intelligent responses
-- ✅ **Vector search** with Pinecone/in-memory fallback
-- ✅ **Document processing** for PDF/DOCX/HTML
-- ✅ **Explainable decisions** with confidence scores
-- ✅ **Production-ready deployment** on Vercel
+- ✅ **Vercel-optimized deployment** (simplified for serverless)
+- ✅ **Mock responses** for demonstration
+- ✅ **Production-ready structure** 
+- ✅ **Proper error handling**
+- ✅ **CORS enabled** for web access
 
 **Good luck with the hackathon! 🚀** 
