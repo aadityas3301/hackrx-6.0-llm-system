@@ -3,3 +3,21 @@ uvicorn==0.24.0
 python-multipart==0.0.6
 requests==2.31.0
 python-dotenv==1.0.0
+
+# Document Processing
+PyPDF2==3.0.1
+python-docx==1.1.0
+beautifulsoup4==4.12.2
+lxml==4.9.3
+
+# ML and AI - Lightweight Components
+scikit-learn==1.3.0
+numpy==1.24.3
+scipy==1.11.0
+tiktoken==0.5.2
+
+# Optional for enhanced processing
+openai==1.3.7
+
+# Security
+python-jose[cryptography]==3.3.0
