@@ -152,6 +152,13 @@ async def process_queries(request: dict):
     start_time = datetime.now()
     
     try:
+        # Verify token
+        auth_header = request.get("authorization") or request.get("Authorization")
+        if not auth_header:
+            raise HTTPException(status_code=401, detail="Missing authorization header")
+        
+        await verify_token(auth_header)
+        
         # Extract data from request
         documents = request.get("documents", "")
         questions = request.get("questions", [])
@@ -181,6 +188,8 @@ async def process_queries(request: dict):
             "sources": sources
         }
         
+    except HTTPException:
+        raise
     except Exception as e:
         logger.error(f"Error processing request: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Processing error: {str(e)}")
